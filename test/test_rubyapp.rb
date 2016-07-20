@@ -9,17 +9,13 @@ require "rubyapp"
 class TestRubyApp < MiniTest::Unit::TestCase
 	include Rack::Test::Methods
 	
-	def setup
-		@app = nil
-	end
-
 	def app
-		@app ||= Rubyapp.new
+		Rubyapp.new
 	end
 	def test_post_message
 		app.expects(:push).with("Hello!")
 		post("/messages", meesage: "Hello!")
-		assert_equal(201,response.status)
+		assert_equal(204,response.status)
 	end
 
 
