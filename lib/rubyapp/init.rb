@@ -1,3 +1,2 @@
 require "rubygems"
-require "isolate/now"
-require 'rack'
+require "rack"

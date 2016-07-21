@@ -1,9 +1,7 @@
 require "rubyapp/init"
-
 require "minitest/autorun"
 require 'mocha/mini_test'
 require "rack/test"
-
 require "rubyapp"
 
 class TestRubyApp < MiniTest::Unit::TestCase
