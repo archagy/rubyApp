@@ -29,8 +29,7 @@ class Rubyapp < Sinatra::Base
  	 end
 
 
-	def self.push message
-		Pusher["messages"].trigger 'message', message
-
+	def self.push(message)
+		Pusher["messages"].trigger('message', message)
 	end
 end
