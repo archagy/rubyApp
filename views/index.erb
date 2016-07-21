@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script
+			  src="https://code.jquery.com/jquery-3.1.0.min.js"
+			  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+			  crossorigin="anonymous"></script>
+
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
 
 
@@ -8,7 +14,7 @@
 	var pusher = new Pusher("<%= Pusher.key %>")
 	var messages = pusher.subscribe('messages')
 	var load = messages.bind('message', function(data) {
- 			console.log(data)
+ 			$('<li>').html(data.message).appendTo($('#message'))
 		})
 	window.onload = load;
 </script>
@@ -23,5 +29,7 @@
 		<input type="text" name="message">
 		<input type="submit" value="Go!">
 	</form>
+
+	<ol id="message"></ol>
 </body>
 </html>
