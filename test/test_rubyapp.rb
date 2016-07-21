@@ -9,6 +9,9 @@ require "rubyapp"
 class TestRubyApp < MiniTest::Unit::TestCase
 	include Rack::Test::Methods
 	
+	def setup
+		@app = nil
+	end
 	def app
 		Rubyapp.new
 	end
