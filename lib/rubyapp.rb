@@ -4,11 +4,11 @@ require "pusher"
 
 
 
-
-Pusher.app_id = '228182',
-Pusher.key = '34b7830c76670bb6edee',
-Pusher.secret = '4fbe6e58bfae108d637f'
-
+unless "production" == ENV["RACK_ENV"]
+	Pusher.app_id = '228182',
+	Pusher.key = '34b7830c76670bb6edee',
+	Pusher.secret = '4fbe6e58bfae108d637f'
+end
 
 class Rubyapp < Sinatra::Base
 	set :root, File.expand_path("../..", __FILE__)
@@ -30,6 +30,6 @@ class Rubyapp < Sinatra::Base
 
 
 	def self.push(message)
-		#Pusher["messages"].trigger('message', message)
+		Pusher["messages"].trigger('message', message)
 	end
 end
